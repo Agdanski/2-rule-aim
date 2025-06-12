@@ -173,3 +173,5 @@ vercel deploy --prod
 
 MIT © 2025 Dr. Allan M. Gdanski & Contributors  
 See `LICENSE` for details.
+
+
