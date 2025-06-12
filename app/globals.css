@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 14% 98%;
+    --foreground: 224 71% 4%;
+    
+    /* Color scheme from the dev spec */
+    --primary: 122 39% 49%;
+    --primary-light: 122 39% 75%;
+    --primary-dark: 122 39% 39%;
+    
+    --accent: 45 100% 65%;
+    --accent-light: 45 100% 75%;
+    --accent-dark: 45 100% 55%;
+    
+    --text-primary: 0 0% 13%;
+    --text-secondary: 0 0% 38%;
+    
+    --success: 120 41% 64%;
+    --error: 0 69% 67%;
+    
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+  }
+  
+  body {
+    @apply bg-background text-text-primary;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-text-primary;
+  }
+  
+  h1 {
+    @apply text-3xl md:text-4xl;
+  }
+  
+  h2 {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+  
+  a {
+    @apply text-primary hover:text-primary-dark transition-colors;
+  }
+}
+
+/* Custom components */
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary-dark px-4 py-2 rounded-md transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-accent text-text-primary hover:bg-accent-dark px-4 py-2 rounded-md transition-colors;
+  }
+  
+  .btn-outline {
+    @apply border border-primary text-primary hover:bg-primary hover:text-white px-4 py-2 rounded-md transition-colors;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6;
+  }
+  
+  .form-input {
+    @apply rounded-md border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent;
+  }
+  
+  .form-label {
+    @apply block text-sm font-medium text-text-secondary mb-1;
+  }
+  
+  .form-error {
+    @apply text-sm text-error mt-1;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .meal-card {
+    @apply relative overflow-hidden rounded-xl border bg-white shadow transition-all hover:shadow-md;
+  }
+  
+  .meal-card-highlight {
+    @apply border-2 border-primary;
+  }
+  
+  .meal-card-warning {
+    @apply border-2 border-error;
+  }
+  
+  /* Meter/gauge styles */
+  .meter-container {
+    @apply relative w-full h-10 bg-gray-200 rounded-full overflow-hidden;
+  }
+  
+  .meter-fill {
+    @apply h-full transition-all duration-500 ease-in-out;
+  }
+  
+  .meter-fill-good {
+    @apply bg-success;
+  }
+  
+  .meter-fill-warning {
+    @apply bg-accent;
+  }
+  
+  .meter-fill-danger {
+    @apply bg-error;
+  }
+  
+  /* Calendar styles */
+  .calendar-day {
+    @apply border rounded-md p-2 min-h-[120px] bg-white;
+  }
+  
+  .calendar-day-current {
+    @apply border-primary-light bg-primary/5;
+  }
+  
+  .calendar-meal-slot {
+    @apply text-xs p-1 mb-1 rounded bg-gray-100 cursor-pointer hover:bg-gray-200;
+  }
+  
+  .calendar-meal-filled {
+    @apply bg-primary/20 hover:bg-primary/30;
+  }
+}
